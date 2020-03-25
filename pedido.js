@@ -11,12 +11,12 @@ export default class Pedido {
    * @param {Tiempo} hora Hora del día.
    * @param {Cliente} cliente Cliente al que se le está vendiendo.
    */
-  constructor(fecha, hora, cliente) {
+  constructor({ fecha, hora, cliente }) {
     this._fecha = fecha;
     this._hora = hora;
     this._cliente = cliente;
     this._elementosPedidos = new Array();
-    this._numeroPedido = ;
+    this._numeroPedido = numeroPedido;
   }
 
   getResumen() {
@@ -58,5 +58,15 @@ export default class Pedido {
     this._elementosPedidos.forEach(elemento => {
       console.log(elemento.getDescripcion());
     });
+  }
+
+  getNumeroPedido() {
+    return `Pedido n°${this._numeroPedido}`
+  }
+
+  esIgualA(pedido) {
+    if(pedido.getNumeroPedido() == this._numeroPedido) {
+      return true
+    } else {return false}
   }
 }
